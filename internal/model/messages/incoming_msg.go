@@ -2,7 +2,7 @@ package messages
 
 // Интерфейс отправителя сообщений
 type MessageSender interface {
-	SendMessenge(text string, userID int64) error
+	SendMessage(text string, userID int64) error
 }
 
 // Модель для обработки входящих сообщений
@@ -27,9 +27,9 @@ type Message struct {
 // !Непонятно почему тут ресивер не m
 func (s *Model) IncomingMessage(msg Message) error {
 	if msg.Text == "/start" {
-		s.tgClient.SendMessenge("Hello!", msg.UserID)
+		s.tgClient.SendMessage("Hello!", msg.UserID)
 		return nil
 	}
-	s.tgClient.SendMessenge("Sorry, i don't know this command", msg.UserID)
+	s.tgClient.SendMessage("Sorry, i don't know this command", msg.UserID)
 	return nil
 }
