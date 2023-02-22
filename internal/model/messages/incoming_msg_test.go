@@ -11,7 +11,7 @@ func TestOnStartCommand_ShouldAnswerWithIntroMessage(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	sender := mocks.NewMockMessageSender(ctrl)
 	model := New(sender)
-	sender.EXPECT().SendMessenge("Hello!", int64(123))
+	sender.EXPECT().SendMessage("Привет", int64(123))
 
 	err := model.IncomingMessage(Message{
 		Text:   "/start",
@@ -24,7 +24,7 @@ func TestOnUnknownCommand(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	sender := mocks.NewMockMessageSender(ctrl)
 	model := New(sender)
-	sender.EXPECT().SendMessenge("Sorry, i don't know this command", int64(123))
+	sender.EXPECT().SendMessage("Прости, я не знаю такой команды", int64(123))
 
 	err := model.IncomingMessage(Message{
 		Text:   "/some_comand",

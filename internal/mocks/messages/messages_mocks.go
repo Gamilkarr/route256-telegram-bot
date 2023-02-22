@@ -33,16 +33,16 @@ func (m *MockMessageSender) EXPECT() *MockMessageSenderMockRecorder {
 	return m.recorder
 }
 
-// SendMessenge mocks base method.
-func (m *MockMessageSender) SendMessenge(text string, userID int64) error {
+// SendMessage mocks base method.
+func (m *MockMessageSender) SendMessage(text string, userID int64) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "SendMessenge", text, userID)
+	ret := m.ctrl.Call(m, "SendMessage", text, userID)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
-// SendMessenge indicates an expected call of SendMessenge.
-func (mr *MockMessageSenderMockRecorder) SendMessenge(text, userID interface{}) *gomock.Call {
+// SendMessage indicates an expected call of SendMessage.
+func (mr *MockMessageSenderMockRecorder) SendMessage(text, userID interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMessenge", reflect.TypeOf((*MockMessageSender)(nil).SendMessenge), text, userID)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMessage", reflect.TypeOf((*MockMessageSender)(nil).SendMessage), text, userID)
 }
